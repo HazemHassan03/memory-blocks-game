@@ -126,20 +126,24 @@ function checkUsername() {
 }
 
 function submit(username) {
-  if (!users[username]) {
-    users[username] = {
-      username: username,
-      name: username === "guestmode" ? "Guest Mode" : username,
-      tries: 0,
-      wins: 0,
-      winRate: 0,
-      loses: 0,
-    };
-    saveData();
+  if (username === user.username) {
+    loginContainer.classList.remove("active");
+  } else {
+    if (!users[username]) {
+      users[username] = {
+        username: username,
+        name: username === "guestmode" ? "Guest Mode" : username,
+        tries: 0,
+        wins: 0,
+        winRate: 0,
+        loses: 0,
+      };
+      saveData();
+    }
+    user = users[username];
+    localStorage.setItem("memory-blocks-username", user.username);
+    location.reload();
   }
-  user = users[username];
-  localStorage.setItem("memory-blocks-username", user.username);
-  location.reload();
 }
 
 function saveData() {
