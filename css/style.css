@@ -288,6 +288,7 @@ header .container {
   -ms-transition: transform var(--transition);
   -o-transition: transform var(--transition);
   cursor: pointer;
+  user-select: none;
 }
 .blocks-container .block.flip,
 .blocks-container .block.match {
@@ -346,6 +347,7 @@ header .container {
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
   display: none;
+  user-select: none;
 }
 .timer.active {
   display: block;
@@ -420,6 +422,11 @@ header .container {
   text-align: center;
   font-size: 20px;
   font-weight: 600;
+  line-height: 1.6;
+}
+.rank-container .rank-based span {
+  font-family: "Righteous", sans-serif;
+  font-weight: normal;
 }
 .rank-container .rank-users {
   display: grid;
@@ -444,6 +451,9 @@ header .container {
 .rank-container .rank-users .rank-title:not(.name),
 .rank-container .rank-users .rank-value:not(.name) {
   justify-content: center;
+}
+.rank-container .rank-users .win-rate {
+  display: none;
 }
 .rank-container .rank-users .the-user {
   background-color: var(--color2);
@@ -483,6 +493,15 @@ header .container {
   -moz-transform: translateX(-50%) scale(0.9);
   -ms-transform: translateX(-50%) scale(0.9);
   -o-transform: translateX(-50%) scale(0.9);
+}
+
+@media (min-width: 550px) {
+  .rank-container .rank-users {
+    grid-template-columns: auto 1fr repeat(4, auto);
+  }
+  .rank-container .rank-users .win-rate {
+    display: flex;
+  }
 }
 
 @media (min-width: 768px) {

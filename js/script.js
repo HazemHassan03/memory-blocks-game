@@ -18,7 +18,7 @@ const loginContainer = document.querySelector(".login"),
   timerValue = document.querySelector(".timer .value"),
   restartEl = document.querySelector(".restart"),
   defaultDuration = 1000,
-  defaultTimer = 45,
+  defaultTimer = 40,
   triesEl = document.querySelector(".tries .value"),
   winsEl = document.querySelector(".wins .value"),
   losesEl = document.querySelector(".loses .value"),
@@ -38,7 +38,8 @@ let users = {},
   tries = 0,
   wins = 0,
   winRate = 0,
-  loses = 0;
+  loses = 0,
+  reloadListener;
 
 if (localStorage.getItem("memory-blocks-users")) {
   users = JSON.parse(localStorage.getItem("memory-blocks-users"));
@@ -231,6 +232,8 @@ function resetGame() {
 }
 
 function startTimer() {
+  removeEventListener(reloadListener, lose);
+  reloadListener = window.addEventListener("beforeunload", lose);
   timerInterval = setInterval(() => {
     updateTimer();
     if (timer == 0) {
@@ -299,22 +302,17 @@ function createMessage(type, title, message) {
 
 function rankUsers(usersObject) {
   const object = JSON.parse(usersObject);
-  const entires = Object.entries(object);
-  entires.sort(([, nestedObjA], [, nestedObjB]) => {
-    if (nestedObjB.winRate === nestedObjA.winRate) {
-      if (nestedObjB.wins === nestedObjA.wins) {
-        return nestedObjA.loses - nestedObjB.loses;
-      } else {
-        return nestedObjB.wins - nestedObjA.wins;
-      }
-    } else {
-      return nestedObjB.winRate - nestedObjA.winRate;
-    }
+  const values = Object.values(object);
+  values.sort((userA, userB) => {
+    if (userA.wins !== userB.wins) return userB.wins - userA.wins;
+    if (userA.loses !== userB.loses) return userA.loses - userB.loses;
+    if (userA.winRate !== userB.winRate) return userB.winRate - userA.winRate;
+    return userB.tries - userA.tries;
   });
   const rankArray = [];
-  entires.forEach((el) => {
-    if (el[1].username !== "guestmode") {
-      rankArray.push(el[1]);
+  values.forEach((el) => {
+    if (el.username !== "guestmode") {
+      rankArray.push(el);
     }
   });
   return rankArray;
@@ -339,15 +337,16 @@ function appendRank(user, isTitle, rank) {
 
   const rankEl = createDiv(user ? rank + 1 : "R", isTitle ? "rank rank-title" : "rank rank-value");
   const nameEl = createDiv(user ? user.name : "Name", isTitle ? "name rank-title" : "name rank-value");
+  const triesEl = createDiv(user ? formatNumber(user.tries) : "T", isTitle ? "tries rank-title" : "tries rank-value");
   const winsEl = createDiv(user ? formatNumber(user.wins) : "W", isTitle ? "wins rank-title" : "wins rank-value");
   const losesEl = createDiv(user ? formatNumber(user.loses) : "L", isTitle ? "loses rank-title" : "loses rank-value");
   const winRateEl = createDiv(user ? `${parseInt(user.winRate).toFixed(2)}%` : "W.R.", isTitle ? "win-rate rank-title" : "win-rate rank-value");
 
   if (user && user.username === localStorage.getItem("memory-blocks-username")) {
-    [rankEl, nameEl, winsEl, losesEl, winRateEl].forEach((el) => el.classList.add("the-user"));
+    [rankEl, nameEl, triesEl, winsEl, losesEl, winRateEl].forEach((el) => el.classList.add("the-user"));
   }
 
-  rankUsersContainer.append(rankEl, nameEl, winsEl, losesEl, winRateEl);
+  rankUsersContainer.append(rankEl, nameEl, triesEl, winsEl, losesEl, winRateEl);
 }
 
 function removeChildren(element) {
