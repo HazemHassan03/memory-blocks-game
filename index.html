@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Play the Memory Blocks Game, compete with your friends on the same device, and climb to the top of the leaderboard!" />
+    <title>Memory Blocks Game</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/fontawesome.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Righteous&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="imgs/favicon.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="login">
+      <i class="back fa-solid fa-arrow-left"></i>
+      <form class="login-form">
+        <p class="reason">Enter a username to save and restore your data.</p>
+        <input type="text" name="username" id="username" placeholder="Enter Your Username" />
+        <div class="instructions">
+          <p>- Must be between <span class="username-min"></span> and <span class="username-max"></span> letters.</p>
+          <p>- English letters and numbers are only allowed.</p>
+          <p>- Must have no spaces.</p>
+        </div>
+        <input type="submit" value="Start" class="button red" disabled />
+      </form>
+      <button class="guest-mode button red">Guest Mode</button>
+    </div>
+    <header>
+      <div class="container">
+        <h1 class="title">Memory Blocks Game</h1>
+        <a class="copyright" href="https://www.linkedin.com/in/hazemhassan03/" target="_blank"><img src="imgs/header-logo.png" alt="My Logo" /></a>
+      </div>
+    </header>
+    <section class="user">
+      <div class="container">
+        <div class="user-name">
+          <h2 class="name">Guest Mode</h2>
+          <button class="change-user button">Change User <i class="fa-solid fa-repeat"></i></button>
+        </div>
+        <div class="scores">
+          <div class="score tries">Tries: <span class="value">0</span></div>
+          <div class="score wins">Wins: <span class="value">0</span></div>
+          <div class="score loses">Loses: <span class="value">0</span></div>
+          <button class="score rank"><i class="fa-solid fa-ranking-star"></i> Rank</button>
+        </div>
+        <i class="user-icon fa-solid fa-user"></i>
+      </div>
+    </section>
+    <section class="blocks-container">
+      <div class="container">
+        <div class="block" data-value="html">
+          <div class="face front"><i class="fa-brands fa-html5"></i></div>
+          <div class="face back">?</div>
+        </div>
+        <div class="block" data-value="html">
+          <div class="face front"><i class="fa-brands fa-html5"></i></div>
+          <div class="face back">?</div>
+        </div>
+        <div class="block" data-value="css">
+          <div class="face front"><i class="fa-brands fa-css3-alt"></i></div>
+          <div class="face back">?</div>
+        </div>
+        <div class="block" data-value="css">
+          <div class="face front"><i class="fa-brands fa-css3-alt"></i></div>
+          <div class="face back">?</div>
+        </div>
+        <div class="block" data-value="js">
+          <div class="face front"><i class="fa-brands fa-js"></i></div>
+          <div class="face back">?</div>
+        </div>
+        <div class="block" data-value="js">
+          <div class="face front"><i class="fa-brands fa-js"></i></div>
+          <div class="face back">?</div>
+        </div>
+        <div class="block" data-value="vue">
+          <div class="face front"><i class="fa-brands fa-vuejs"></i></div>
+          <div class="face back">?</div>
+        </div>
+        <div class="block" data-value="vue">
+          <div class="face front"><i class="fa-brands fa-vuejs"></i></div>
+          <div class="face back">?</div>
+        </div>
+        <div class="block" data-value="node">
+          <div class="face front"><i class="fa-brands fa-node"></i></div>
+          <div class="face back">?</div>
+        </div>
+        <div class="block" data-value="node">
+          <div class="face front"><i class="fa-brands fa-node"></i></div>
+          <div class="face back">?</div>
+        </div>
+        <div class="block" data-value="react">
+          <div class="face front"><i class="fa-brands fa-react"></i></div>
+          <div class="face back">?</div>
+        </div>
+        <div class="block" data-value="react">
+          <div class="face front"><i class="fa-brands fa-react"></i></div>
+          <div class="face back">?</div>
+        </div>
+        <div class="block" data-value="angular">
+          <div class="face front"><i class="fa-brands fa-angular"></i></div>
+          <div class="face back">?</div>
+        </div>
+        <div class="block" data-value="angular">
+          <div class="face front"><i class="fa-brands fa-angular"></i></div>
+          <div class="face back">?</div>
+        </div>
+        <div class="block" data-value="github">
+          <div class="face front"><i class="fa-brands fa-github"></i></div>
+          <div class="face back">?</div>
+        </div>
+        <div class="block" data-value="github">
+          <div class="face front"><i class="fa-brands fa-github"></i></div>
+          <div class="face back">?</div>
+        </div>
+        <div class="block" data-value="bootstrap">
+          <div class="face front"><i class="fa-brands fa-bootstrap"></i></div>
+          <div class="face back">?</div>
+        </div>
+        <div class="block" data-value="bootstrap">
+          <div class="face front"><i class="fa-brands fa-bootstrap"></i></div>
+          <div class="face back">?</div>
+        </div>
+        <div class="block" data-value="sass">
+          <div class="face front"><i class="fa-brands fa-sass"></i></div>
+          <div class="face back">?</div>
+        </div>
+        <div class="block" data-value="sass">
+          <div class="face front"><i class="fa-brands fa-sass"></i></div>
+          <div class="face back">?</div>
+        </div>
+      </div>
+    </section>
+    <div class="messages">
+      <div class="container"></div>
+    </div>
+    <div class="timer active">
+      <i class="fa-solid fa-stopwatch"></i>
+      <span class="value"></span>
+    </div>
+    <div class="rank-container">
+      <div class="container">
+        <h2 class="title"><i class="fa-solid fa-ranking-star"></i> Leaderboard</h2>
+        <div class="description">
+          <p class="desc">Rank all users on this device based on</p>
+          <p class="rank-based">[ Wins <span>></span> Fewest Loses <span>></span> Win Rate <span>></span> Tries ]</p>
+        </div>
+        <div class="rank-users"></div>
+      </div>
+      <i class="close fa-solid fa-arrow-down"></i>
+    </div>
+    <button class="restart button red">Play Again</button>
+    <script src="js/script.js"></script>
+  </body>
+</html>
