@@ -302,7 +302,7 @@ function createMessage(type, title, message) {
 
 function rankUsers(usersObject) {
   const object = JSON.parse(usersObject);
-  const values = Object.values(object);
+  const values = Object.values(object).filter(user => user.tries > 0);
   values.sort((userA, userB) => {
     if (userA.wins !== userB.wins) return userB.wins - userA.wins;
     if (userA.loses !== userB.loses) return userA.loses - userB.loses;
