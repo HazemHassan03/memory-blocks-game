@@ -2,8 +2,6 @@
 
 A classic memory matching game built with HTML, CSS, and JavaScript. Play solo or compete with friends on the same device and climb to the top of the local leaderboard!
 
----
-
 ## Features
 
 - Flip and match pairs of blocks with tech icons
@@ -12,8 +10,6 @@ A classic memory matching game built with HTML, CSS, and JavaScript. Play solo o
 - Responsive, modern design
 - Playable on desktop and mobile
 
----
-
 ## Technologies Used
 
 - HTML5
@@ -21,8 +17,6 @@ A classic memory matching game built with HTML, CSS, and JavaScript. Play solo o
 - JavaScript (ES6)
 - [FontAwesome](https://fontawesome.com/) for icons
 - [Google Fonts](https://fonts.google.com/) for typography
-
----
 
 ## Folder Structure
 
@@ -47,8 +41,6 @@ memory-blocks-game/
 
 ```
 
----
-
 ## How to Play
 
 1. Open `index.html` in your web browser.
@@ -57,20 +49,14 @@ memory-blocks-game/
 4. Try to match all pairs before the timer runs out!
 5. Your stats and rank are saved locally.
 
----
-
 ## Live Demo
 
 [Click here to play the Memory Blocks Game online!](https://hazemhassan03.github.io/memory-blocks-game/)
-
----
 
 ## Setup & Usage
 
 - No installation required—just open `index.html` in any modern browser.
 - All assets are included locally; no internet connection needed after download.
-
----
 
 ## Credits
 
@@ -78,8 +64,6 @@ memory-blocks-game/
 - Icons by [FontAwesome](https://fontawesome.com/)
 - Fonts by [Google Fonts](https://fonts.google.com/)
 
----
-
 ## Contact
 
-For questions, feedback, or collaboration, connect with me on [LinkedIn](https://www.linkedin.com/in/hazemhassan03/).
+For any inquiries or feedback, please reach out at [hazemhassan0321@gmail.com](https://mail.google.com/mail/?view=cm&fs=1&to=hazemhassan0321@gmail.com).
